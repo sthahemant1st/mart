@@ -13,6 +13,7 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int prdId;
+	@Column(unique = true)
 	private String prdName;
 	private int prdPrice;
 	private int prdQuantity;

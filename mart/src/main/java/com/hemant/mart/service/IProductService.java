@@ -11,6 +11,8 @@ public interface IProductService {
 	Product addNewProduct(Product product);
 	Product updateProduct(Product product);
 	String deleteProduct(int prdId);
+	List<Product> getProductByBrandId(int brandId);
+	List<Product> getProductByCategoryId(int catId);
 	
 	
 

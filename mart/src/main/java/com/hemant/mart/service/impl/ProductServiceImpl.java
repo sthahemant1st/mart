@@ -47,4 +47,14 @@ public class ProductServiceImpl implements IProductService {
 		return "Product Deleted";
 	}
 
+	@Override
+	public List<Product> getProductByBrandId(int brandId) {
+		return prdRepo.fintProductbyBrandId(brandId);
+	}
+
+	@Override
+	public List<Product> getProductByCategoryId(int catId) {
+		return prdRepo.findProductByCategoryId(catId);
+	}
+
 }

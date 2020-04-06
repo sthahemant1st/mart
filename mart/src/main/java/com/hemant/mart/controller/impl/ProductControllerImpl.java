@@ -58,4 +58,14 @@ public class ProductControllerImpl implements IProductController {
 		return prdServ.deleteProduct(prdId);
 	}
 
+	@Override
+	public List<Product> getProductByBrandId(int brandId) {
+		return prdServ.getProductByBrandId(brandId);
+	}
+
+	@Override
+	public List<Product> getProductByCategoryId(int catId) {
+		return prdServ.getProductByCategoryId(catId);
+	}
+
 }
