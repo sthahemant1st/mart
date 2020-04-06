@@ -1,4 +1,4 @@
-package com.hemant.mart.service;
+package com.hemant.mart.service.impl;
 
 import java.util.List;
 
@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hemant.mart.model.Customer;
-import com.hemant.mart.repository.CustomerRepository;
+import com.hemant.mart.repository.ICustomerRepository;
+import com.hemant.mart.service.ICustomerService;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements ICustomerService {
 	@Autowired
-	CustomerRepository custRepo;
+	ICustomerRepository custRepo;
 
 	@Override
 	public Customer signupCustomer(Customer customer) {
@@ -49,6 +50,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer updateCustomer(Customer customer) {
 		return custRepo.save(customer);
+	}
+
+	@Override
+	public Customer getCustomerByName(String custName) {
+		return null;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.hemant.mart.controller;
+package com.hemant.mart.controller.impl;
 
 import java.util.List;
 
@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hemant.mart.controller.ICustomerController;
 import com.hemant.mart.model.Customer;
-import com.hemant.mart.service.CustomerService;
+import com.hemant.mart.service.ICustomerService;
 
 @RestController
-public class CustomerControllerImpl implements CustomerController {
+public class CustomerControllerImpl implements ICustomerController {
 	
 	@Autowired
-	CustomerService custService;
+	ICustomerService custService;
 	
 	@PostMapping("customer/signup")
 	public Customer signupCustomer(@RequestBody Customer customer) {
@@ -28,10 +29,10 @@ public class CustomerControllerImpl implements CustomerController {
 		return customer;		
 	}
 	
-	@PostMapping("login")
-	public Customer loginCustomer(String custEmail,String custPassword) {
-		
-		return custService.loginCustomer(custEmail, custPassword);
+	@PostMapping("customer/login")
+	public Customer loginCustomer(@RequestBody Customer customer) {
+		//String custEmail,String custPassword
+		return custService.loginCustomer(customer.getCustEmail(), customer.getCustPassword());
 		
 	}
 	@GetMapping("customer/{id}")
@@ -41,8 +42,7 @@ public class CustomerControllerImpl implements CustomerController {
 	}
 	
 	@DeleteMapping("customer/{id}")
-	public String deleteCustomer(@PathVariable("id") int id) {
-		 
+	public String deleteCustomer(@PathVariable("id") int id) {		 
 		 return custService.deleteCustomer(id);	
 	}
 	
