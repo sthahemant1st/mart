@@ -5,7 +5,7 @@ import java.util.List;
 import com.hemant.mart.model.Customer;
 
 public interface ICustomerController {
-	public Customer signupCustomer( Customer customer);
+	public String addCustomer( Customer customer);
 	public Customer loginCustomer(Customer customer);
 	public Customer getCustomerById(int id);
 	public String deleteCustomer(int id);

@@ -21,12 +21,12 @@ public class CustomerControllerImpl implements ICustomerController {
 	@Autowired
 	ICustomerService custService;
 	
-	@PostMapping("customer/signup")
-	public Customer signupCustomer(@RequestBody Customer customer) {
+	@PostMapping("customer/add")
+	public String addCustomer(@RequestBody Customer customer) {
 		
 		custService.signupCustomer(customer);
 		System.out.println(customer);
-		return customer;		
+		return "add sucess";		
 	}
 	
 	@PostMapping("customer/login")
